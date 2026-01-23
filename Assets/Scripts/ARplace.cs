@@ -5,32 +5,81 @@ using UnityEngine.XR.ARSubsystems;
 using System.Collections;
 using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
+using TMPro; // TextMeshPro Dropdown
 
 public class ARplace : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private ARRaycastManager raycastManager;
-    [SerializeField] private ARPlacementUIHandler uiHandler; // <--- Drag UI Handler Here
+    [SerializeField] private ARPlacementUIHandler uiHandler; // Optional UI handler
 
-    bool isPlacing = false;
-    bool hasPlaced = false;   // 🔒 PLACE ONLY ONCE
+    [Header("Placeable Prefabs")]
+    [SerializeField] private List<GameObject> placeablePrefabs;
+    [SerializeField] private int selectedPrefabIndex = 0; // default first prefab
 
-    GameObject placedObject;
+    [Header("Settings")]
+    [SerializeField] private bool allowMovement = false; // Currently disabled
 
-    float initialDistance;
-    Vector3 initialScale;
+    [Header("UI")]
+    [SerializeField] private TMP_Dropdown prefabDropdown; // assign your TMP dropdown here
 
-    float initialAngle;
-    float currentYRotation;
+    private bool isPlacing = false;
+    private bool hasPlaced = false;
+
+    private GameObject placedObject;
+
+    private float initialDistance;
+    private Vector3 initialScale;
+
+    private float initialAngle;
+    private float currentYRotation;
 
     void OnEnable()
     {
         EnhancedTouchSupport.Enable();
+
+        if (prefabDropdown != null)
+        {
+            prefabDropdown.onValueChanged.AddListener(OnDropdownChanged);
+        }
+    }
+
+    void Start()
+    {
+        if (prefabDropdown != null)
+        {
+            prefabDropdown.onValueChanged.AddListener(OnDropdownChanged);
+
+            // Initialize selectedPrefabIndex with current dropdown value
+            selectedPrefabIndex = prefabDropdown.value;
+            Debug.Log("Initial prefab selected: " + placeablePrefabs[selectedPrefabIndex].name);
+        }
     }
 
     void OnDisable()
     {
         EnhancedTouchSupport.Disable();
+
+        if (prefabDropdown != null)
+        {
+            prefabDropdown.onValueChanged.RemoveListener(OnDropdownChanged);
+        }
+    }
+
+    private void OnDropdownChanged(int index)
+    {
+        if (index < 0 || index >= placeablePrefabs.Count) return;
+
+        selectedPrefabIndex = index;
+
+        // Remove any currently placed object so user can place the new prefab
+        if (placedObject != null)
+        {
+            Destroy(placedObject);
+            placedObject = null;
+            hasPlaced = false; // allow placement again
+        }
     }
 
     void Update()
@@ -41,7 +90,6 @@ public class ARplace : MonoBehaviour
         HandleScaleAndRotation();
     }
 
-    // --- NEW METHOD: Called by UI Handler when close button is clicked ---
     public void ResetPlacement()
     {
         hasPlaced = false;
@@ -51,7 +99,7 @@ public class ARplace : MonoBehaviour
     void HandlePlacement()
     {
         if (isPlacing) return;
-        if (hasPlaced) return;   // 🔒 block future placements
+        if (hasPlaced && !allowMovement) return; // Locked
 
         bool pressed = false;
         Vector2 screenPosition = default;
@@ -71,6 +119,9 @@ public class ARplace : MonoBehaviour
             screenPosition = Mouse.current.position.ReadValue();
         }
 
+        // Ignore touches over UI
+        if (pressed && EventSystem.current.IsPointerOverGameObject()) return;
+
         if (pressed)
         {
             isPlacing = true;
@@ -87,19 +138,19 @@ public class ARplace : MonoBehaviour
         {
             Pose hitPose = rayHits[0].pose;
 
-            placedObject = Instantiate(
-                raycastManager.raycastPrefab,
-                hitPose.position,
-                hitPose.rotation
-            );
-
-            hasPlaced = true;   // 🔒 permanently lock placement
-
-            // --- TRIGGER UI HERE ---
-            if (uiHandler != null)
+            if (placedObject == null)
             {
-                uiHandler.ShowUIForModel(placedObject);
+                GameObject prefabToPlace = placeablePrefabs[selectedPrefabIndex];
+                placedObject = Instantiate(prefabToPlace, hitPose.position, hitPose.rotation);
+                hasPlaced = true;
             }
+            else if (allowMovement)
+            {
+                placedObject.transform.SetPositionAndRotation(hitPose.position, hitPose.rotation);
+            }
+
+            if (uiHandler != null)
+                uiHandler.ShowUIForModel(placedObject);
         }
 
         StartCoroutine(SetIsPlacingToFalseWithDelay());
