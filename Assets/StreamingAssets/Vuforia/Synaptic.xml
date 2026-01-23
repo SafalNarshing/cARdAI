@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
   <Tracking>
+    <ImageTarget name="doko" size="1.000000 1.562212" />
+    <ImageTarget name="khukuri" size="1.000000 1.562212" />
+    <ImageTarget name="saraswati" size="1.000000 1.562212" />
+    <ImageTarget name="dhaka" size="1.000000 1.562212" />
     <ImageTarget name="brushing" size="1.000000 1.562212" />
     <ImageTarget name="cycling" size="1.000000 1.562212" />
     <ImageTarget name="school" size="1.000000 1.562212" />
