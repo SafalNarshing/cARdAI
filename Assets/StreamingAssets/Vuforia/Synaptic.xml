@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
   <Tracking>
+    <ImageTarget name="tube" size="1.000000 1.449761" />
+    <ImageTarget name="soap" size="1.000000 1.449761" />
+    <ImageTarget name="tractor" size="1.000000 1.449761" />
+    <ImageTarget name="pencil" size="1.000000 1.456731" />
+    <ImageTarget name="brush" size="1.000000 1.449761" />
+    <ImageTarget name="cycle" size="1.000000 1.449761" />
+    <ImageTarget name="football" size="1.000000 1.449761" />
+    <ImageTarget name="apple" size="1.000000 1.449761" />
+    <ImageTarget name="umbrella" size="1.000000 1.555046" />
+    <ImageTarget name="farm" size="1.000000 1.456731" />
+    <ImageTarget name="bedroom" size="1.000000 1.449761" />
+    <ImageTarget name="road" size="1.000000 1.449761" />
+    <ImageTarget name="eating" size="1.000000 1.449761" />
+    <ImageTarget name="studying" size="1.000000 1.449761" />
+    <ImageTarget name="raining" size="1.000000 1.449761" />
+    <ImageTarget name="farming" size="1.000000 1.449761" />
     <ImageTarget name="doko" size="1.000000 1.562212" />
     <ImageTarget name="khukuri" size="1.000000 1.562212" />
     <ImageTarget name="saraswati" size="1.000000 1.562212" />
