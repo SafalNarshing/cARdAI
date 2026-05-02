@@ -14,9 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/scanner.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/simulation.unity
-    guid: 90690c6a89d7a5e44bc85383a137053b
+    guid: d774f23b6038e9d4f84689d5555db83f
   - enabled: 1
     path: Assets/Scenes/place.unity
     guid: 81d63119c67b25f4b97551677c54ca52
