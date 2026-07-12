@@ -4242,8 +4242,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 16f5b83184111a348b38f7d03bcc5a57, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 77ab2ccc676e4c44e8c955252ab1864e, type: 3}
+  m_Resource: {fileID: 8300000, guid: 77ab2ccc676e4c44e8c955252ab1864e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -5019,8 +5019,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: c84b314e13894824c9c0d1d5c08c50f5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: cc8f8372558959c42bcb2e4d1dccc2ef, type: 3}
+  m_Resource: {fileID: 8300000, guid: cc8f8372558959c42bcb2e4d1dccc2ef, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -9852,6 +9852,125 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7329a830428f3534da935d7ea050bab1, type: 3}
   m_PrefabInstance: {fileID: 1238004834}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1249024373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1249024377}
+  - component: {fileID: 1249024376}
+  - component: {fileID: 1249024375}
+  - component: {fileID: 1249024374}
+  m_Layer: 0
+  m_Name: MultiTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1249024374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249024373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1493616031, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 1249024376}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: --- EMPTY ---
+  mDatasetName: Vuforia/--- EMPTY ---.xml
+  mCastedBehaviour: {fileID: 1249024376}
+  mBaseMesh: {fileID: 0}
+--- !u!114 &1249024375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249024373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886328de6a5c14cbb85854fdf1a5085b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StatusFilter: 1
+  UsePoseSmoothing: 0
+  AnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 3.3333333
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.3
+      value: 1
+      inSlope: 3.3333333
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  OnTargetFound:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTargetLost:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1249024376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249024373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1568443412, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PreviewVisible: 1
+  RuntimeOcclusion: 0
+  RuntimeCollider: 0
+  mTrackableName: --- EMPTY ---
+  mInitializedInEditor: 1
+  mDataSetPath: Vuforia/--- EMPTY ---.xml
+  mSize: {x: 0, y: 0, z: 0}
+  mMotionHint: 1
+  mTrackingOptimization: 0
+  mTrackingOptimizationNeedsUpgrade: 0
+  mPreview: {fileID: 1249024374}
+--- !u!4 &1249024377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249024373}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1251168907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11587,22 +11706,70 @@ MonoBehaviour:
     model: {fileID: 1577358174}
     audioClip: {fileID: 0}
   - name: Khukhuri
-    model: {fileID: 0}
+    model: {fileID: 1820427155}
     audioClip: {fileID: 0}
   - name: Dhakatopi
     model: {fileID: 486137340}
     audioClip: {fileID: 0}
   - name: Saraswati
-    model: {fileID: 486137340}
+    model: {fileID: 16642836}
     audioClip: {fileID: 0}
   - name: Brushing
     model: {fileID: 330831132}
     audioClip: {fileID: 0}
   - name: School
-    model: {fileID: 0}
+    model: {fileID: 1453343648}
     audioClip: {fileID: 0}
   - name: Kitchen
     model: {fileID: 1275025411}
+    audioClip: {fileID: 0}
+  - name: Tube
+    model: {fileID: 802956394}
+    audioClip: {fileID: 0}
+  - name: Apple
+    model: {fileID: 134504302}
+    audioClip: {fileID: 0}
+  - name: Pencil
+    model: {fileID: 1508827462}
+    audioClip: {fileID: 0}
+  - name: Soap
+    model: {fileID: 2137048549}
+    audioClip: {fileID: 0}
+  - name: Tractor
+    model: {fileID: 515298588}
+    audioClip: {fileID: 0}
+  - name: Brush
+    model: {fileID: 388878025}
+    audioClip: {fileID: 0}
+  - name: Cycle
+    model: {fileID: 84162164}
+    audioClip: {fileID: 0}
+  - name: Football
+    model: {fileID: 1238004836}
+    audioClip: {fileID: 0}
+  - name: Bedroom
+    model: {fileID: 1251168908}
+    audioClip: {fileID: 0}
+  - name: Umbrella
+    model: {fileID: 895707613}
+    audioClip: {fileID: 0}
+  - name: Road
+    model: {fileID: 256532027}
+    audioClip: {fileID: 0}
+  - name: Eating
+    model: {fileID: 1069666910}
+    audioClip: {fileID: 0}
+  - name: Studying
+    model: {fileID: 1416375529}
+    audioClip: {fileID: 0}
+  - name: Farm
+    model: {fileID: 1676006757}
+    audioClip: {fileID: 0}
+  - name: Elephant
+    model: {fileID: 1625836710}
+    audioClip: {fileID: 0}
+  - name: Tree
+    model: {fileID: 1779747900}
     audioClip: {fileID: 0}
   audioSource: {fileID: 1103986866}
   rotationSpeed: 0.6
@@ -15081,8 +15248,8 @@ MonoBehaviour:
   soundButton: {fileID: 2111635499}
   closeButton: {fileID: 1768174453}
   modelObject: {fileID: 256532027}
-  audioSourceEn: {fileID: 227173351}
-  audioSourceNp: {fileID: 2054550146}
+  audioSourceEn: {fileID: 1272671580}
+  audioSourceNp: {fileID: 195310721}
   nameEn: Road
   phonemeEn: 
   syllableEn: 
@@ -15552,8 +15719,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ba265d77a5306411c958312bdfa81ca1, type: 3}
-  m_Resource: {fileID: 8300000, guid: ba265d77a5306411c958312bdfa81ca1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: db1435a75df8ec9449b9fa1c0d4db577, type: 3}
+  m_Resource: {fileID: 8300000, guid: db1435a75df8ec9449b9fa1c0d4db577, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -16508,3 +16675,4 @@ SceneRoots:
   - {fileID: 1773905369}
   - {fileID: 1852627567}
   - {fileID: 706342008}
+  - {fileID: 1249024377}
