@@ -753,6 +753,10 @@ MonoBehaviour:
   placerDesc: {fileID: 386654841}
   simTitle: {fileID: 1580312220}
   simDesc: {fileID: 1347899084}
+  comboTitle: {fileID: 1074806618}
+  comboDesc: {fileID: 1694260510}
+  customVoiceTitle: {fileID: 563695421}
+  customVoiceObj: {fileID: 0}
   titleEn: Pick a Learning Lesson
   scannerTitleEn: AR Scanner
   scannerDescEn: Scan our card to learn words
@@ -760,6 +764,10 @@ MonoBehaviour:
   placerDescEn: Place Objects on your own Environment
   simTitleEn: AR Simulation
   simDescEn: Visualize Activities with interactions
+  comboTitleEn: Combo Cards
+  comboDescEn: Combine two cards and see what happens
+  customVoiceTitleEn: Custom Voice
+  customVoiceObjEn: Choose an object
   titleNp: "\u090F\u0909\u091F\u093E \u092A\u093E\u0920 \u091B\u093E\u0928\u094D\u0928\u0941\u0939\u094B\u0938\u094D"
   scannerTitleNp: "\u090F\u0906\u0930 \u0938\u094D\u0915\u094D\u092F\u093E\u0928\u0930"
   scannerDescNp: "\u0936\u092C\u094D\u0926\u0939\u0930\u0942 \u0938\u093F\u0915\u094D\u0928
@@ -772,6 +780,12 @@ MonoBehaviour:
   simDescNp: "\u0905\u0928\u094D\u0924\u0930\u0915\u094D\u0930\u093F\u092F\u093E\u0915\u093E
     \u0938\u093E\u0925 \u0917\u0924\u093F\u0935\u093F\u0927\u093F\u0939\u0930\u0942
     \u0939\u0947\u0930\u094D\u0928\u0941\u0939\u094B\u0938\u094D"
+  comboTitleNp: "\u0938\u0902\u092F\u094B\u091C\u0928 \u0915\u093E\u0930\u094D\u0921\u0939\u0930\u0942"
+  comboDescNp: "\u0926\u0941\u0908 \u0915\u093E\u0930\u094D\u0921\u0939\u0930\u0942
+    \u092E\u093F\u0932\u093E\u090F\u0930 \u0915\u0947 \u0939\u0941\u0928\u094D\u091B
+    \u0939\u0947\u0930\u094D\u0928\u0941\u0939\u094B\u0938\u094D"
+  customVoiceTitleNp: "\u0905\u0928\u0941\u0915\u0942\u0932\u093F\u0924 \u0906\u0935\u093E\u091C"
+  customVoiceObjNp: "\u0935\u0938\u094D\u0924\u0941 \u091B\u093E\u0928\u094D\u0928\u0941\u0939\u094B\u0938\u094D"
 --- !u!1 &293041466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,7 +1321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db63c9231f15c534d82ff8f439299349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: custom_voice
+  sceneToLoad: Custom_voice_selector
 --- !u!114 &563695421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1330,8 +1344,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Custom Voice >
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1d397e32529731d4ebff34acfa0370e1, type: 2}
+  m_sharedMaterial: {fileID: 6373273145527523686, guid: 1d397e32529731d4ebff34acfa0370e1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2095,6 +2109,9 @@ GameObject:
   - component: {fileID: 1074806617}
   - component: {fileID: 1074806619}
   - component: {fileID: 1074806618}
+  - component: {fileID: 1074806622}
+  - component: {fileID: 1074806621}
+  - component: {fileID: 1074806620}
   m_Layer: 5
   m_Name: Card Combo
   m_TagString: Untagged
@@ -2220,6 +2237,114 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1074806616}
   m_CullTransparentMesh: 1
+--- !u!114 &1074806620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074806616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &1074806621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074806616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1074806618}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &1074806622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074806616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1074806618}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1196115846
 GameObject:
   m_ObjectHideFlags: 0

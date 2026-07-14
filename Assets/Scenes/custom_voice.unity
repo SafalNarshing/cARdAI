@@ -2380,7 +2380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db63c9231f15c534d82ff8f439299349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: home
+  sceneToLoad: Custom_voice_selector
 --- !u!114 &1129916106
 MonoBehaviour:
   m_ObjectHideFlags: 0

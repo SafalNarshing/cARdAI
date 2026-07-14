@@ -29,6 +29,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/custom_voice.unity
     guid: 3ae18af3b88245940a0a427ac08a24c6
+  - enabled: 1
+    path: Assets/Scenes/Custom_voice_selector.unity
+    guid: c647a59169d1ba94b84b6fecb182d9b1
+  - enabled: 1
+    path: Assets/Scenes/Terms.unity
+    guid: 231c45c5c7f9d4747a05d9da16599ab9
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 28bf22b250e30f842953588b2e7d1da2, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 94ebaf900210133409d4d0ac5dd64083, type: 2}
