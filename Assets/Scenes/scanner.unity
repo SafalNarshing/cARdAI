@@ -852,7 +852,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &93819822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12041,7 +12041,7 @@ MonoBehaviour:
     audioClip: {fileID: 0}
   - name: Brush
     model: {fileID: 388878025}
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: f2a80c3240f7fba4ca1f52de34ecb0b0, type: 3}
   - name: Cycle
     model: {fileID: 84162164}
     audioClip: {fileID: 0}
