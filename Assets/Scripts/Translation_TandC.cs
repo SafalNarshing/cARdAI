@@ -23,9 +23,7 @@ public class Translation_TandC : MonoBehaviour
         "MICROPHONE: Used only if you choose to record your own voice for a\r\n" +
         "card (\"My Voice\"). Recordings are stored on this device only — never\r\n" +
         "uploaded or shared.\r\n\r\n" +
-        "WHAT WE COLLECT: Your child's age group, and, if you choose to add it,\r\n" +
-        "a developmental classification to personalize content. This\r\n" +
-        "information is never sold, shared, or used for advertising.\r\n\r\n" +
+        "No personal information is collected, sold, shared, or used \r\n for advertising from this app." +
         "NOT A MEDICAL DEVICE: cARd AI is a vocabulary-learning tool. It does\r\n" +
         "not diagnose, treat, or replace professional speech, occupational, or\r\n" +
         "behavioral therapy.\r\n\r\n" +
@@ -45,9 +43,7 @@ public class Translation_TandC : MonoBehaviour
         "माइक्रोफोन: कार्डको लागि तपाईंको आफ्नै आवाज रेकर्ड गर्न रोज्नुभयो भने मात्र प्रयोग गरिन्छ\r\n" +
         "(\"माई भ्वाइस\")। रेकर्डिङहरू यस उपकरणमा मात्र भण्डारण गरिन्छ — कहिल्यै\r\n" +
         "अपलोड वा साझा गरिँदैन।\r\n\r\n" +
-        "हामीले के संकलन गर्छौं: तपाईंको बच्चाको उमेर समूह, र, तपाईंले थप्न रोज्नुभयो भने,\r\n" +
-        "सामग्री व्यक्तिगत बनाउन विकासात्मक वर्गीकरण। यो\r\n" +
-        "जानकारी कहिल्यै बेचिँदैन, साझा गरिँदैन, वा विज्ञापनको लागि प्रयोग गरिँदैन।\r\n\r\n" +
+        "यो एपले विज्ञापनका लागि तपाईंको कुनै पनि व्यक्तिगत जानकारी संकलन, बिक्री, \r\n सेयर वा प्रयोग गर्दैन।"+
         "मेडिकल उपकरण होइन: cARd AI एक शब्दावली-सिकाइ उपकरण हो। यसले\r\n" +
         "व्यावसायिक वाणी, व्यावसायिक, वा व्यावहारिक थेरापीको निदान, उपचार, वा प्रतिस्थापन गर्दैन।\r\n\r\n" +
         "पूर्ण नियम र गोपनीयता नीति: synaptic.framer.ai/legal";
