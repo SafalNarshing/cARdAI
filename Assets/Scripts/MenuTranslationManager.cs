@@ -17,7 +17,8 @@ public class MenuTranslationManager : MonoBehaviour
     public TextMeshProUGUI comboDesc;
     public TextMeshProUGUI customVoiceTitle;  // "Custom Voice"             // NEW
     public TextMeshProUGUI customVoiceObj;    // "Choose an object"         // NEW
-    public TextMeshProUGUI tigerCustomVoice; 
+    public TextMeshProUGUI tigerCustomVoice;
+    public TextMeshProUGUI elephantCustomVoice;
 
     [Header("English Strings")]
     public string titleEn = "Pick a Learning Lesson";
@@ -32,6 +33,7 @@ public class MenuTranslationManager : MonoBehaviour
     public string customVoiceTitleEn = "Custom Voice";        // NEW
     public string customVoiceObjEn = "Choose an object";
     public string tigerCustomVoiceEn = "Tiger";
+    public string elephantCustomVoiceEn = "Elephant";
 
     [Header("Nepali Strings")]
     public string titleNp = "एउटा पाठ छान्नुहोस्"; // "Pick a lesson"
@@ -46,6 +48,7 @@ public class MenuTranslationManager : MonoBehaviour
     public string customVoiceTitleNp = "अनुकूलित आवाज";      // NEW — replace with your real translation
     public string customVoiceObjNp = "वस्तु छान्नुहोस्"; // NEW — replace with your real translation
     public string tigerCustomVoiceNp = "बाघ"; // NEW — replace with your real translation
+    public string elephantCustomVoiceNp = "हात्ती"; // NEW — replace with your real translation
 
     IEnumerator Start()
     {
@@ -97,6 +100,8 @@ public class MenuTranslationManager : MonoBehaviour
         if (customVoiceObj) customVoiceObj.text = isNepali ? customVoiceObjNp : customVoiceObjEn;         // NEW
         
         if (tigerCustomVoice) tigerCustomVoice.text = isNepali ? tigerCustomVoiceNp : tigerCustomVoiceEn; // NEW
+
+        if (elephantCustomVoice) elephantCustomVoice.text = isNepali ? elephantCustomVoiceNp : elephantCustomVoiceEn; // NEW
     }
 
 

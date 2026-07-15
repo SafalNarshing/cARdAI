@@ -35,6 +35,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Terms.unity
     guid: 231c45c5c7f9d4747a05d9da16599ab9
+  - enabled: 1
+    path: Assets/Scenes/Combo_Cards_UI.unity
+    guid: dcc6d78c24a94d848a5fe4730d632ce2
+  - enabled: 1
+    path: Assets/Scenes/custom_voice_elephant.unity
+    guid: 73638d83494a3b4429d6e5f86844bd84
+  - enabled: 1
+    path: Assets/Scenes/elephant-custom.unity
+    guid: fd13991f1b4663d4783c314801de8a63
+  - enabled: 1
+    path: Assets/Scenes/Studying_Custom.unity
+    guid: 44dd32548fb7245449ee6da7a6e6ec1a
+  - enabled: 1
+    path: Assets/Scenes/Brushing_Custom.unity
+    guid: c744977508d70c84297cd4fd78a1058a
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 28bf22b250e30f842953588b2e7d1da2, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 94ebaf900210133409d4d0ac5dd64083, type: 2}

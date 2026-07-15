@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 80098145}
   - component: {fileID: 80098144}
   m_Layer: 5
-  m_Name: Card Combo
+  m_Name: WordsCombo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9, y: -504}
+  m_AnchoredPosition: {x: -9, y: -74.32}
   m_SizeDelta: {x: 894.2, y: 349.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &80098144
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db63c9231f15c534d82ff8f439299349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: card_combo
+  sceneToLoad: Combo_Cards_UI
 --- !u!114 &80098145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -757,25 +757,29 @@ MonoBehaviour:
   comboDesc: {fileID: 1694260510}
   customVoiceTitle: {fileID: 563695421}
   customVoiceObj: {fileID: 0}
+  tigerCustomVoice: {fileID: 0}
+  elephantCustomVoice: {fileID: 0}
   titleEn: Pick a Learning Lesson
   scannerTitleEn: AR Scanner
   scannerDescEn: Scan our card to learn words
-  placerTitleEn: AR Placer
-  placerDescEn: Place Objects on your own Environment
+  placerTitleEn: Custom Voice
+  placerDescEn: Add your own voice to models
   simTitleEn: AR Simulation
   simDescEn: Visualize Activities with interactions
   comboTitleEn: Combo Cards
   comboDescEn: Combine two cards and see what happens
   customVoiceTitleEn: Custom Voice
   customVoiceObjEn: Choose an object
+  tigerCustomVoiceEn: Tiger
+  elephantCustomVoiceEn: Elephant
   titleNp: "\u090F\u0909\u091F\u093E \u092A\u093E\u0920 \u091B\u093E\u0928\u094D\u0928\u0941\u0939\u094B\u0938\u094D"
   scannerTitleNp: "\u090F\u0906\u0930 \u0938\u094D\u0915\u094D\u092F\u093E\u0928\u0930"
   scannerDescNp: "\u0936\u092C\u094D\u0926\u0939\u0930\u0942 \u0938\u093F\u0915\u094D\u0928
     \u0939\u093E\u092E\u094D\u0930\u094B \u0915\u093E\u0930\u094D\u0921 \u0938\u094D\u0915\u094D\u092F\u093E\u0928
     \u0917\u0930\u094D\u0928\u0941\u0939\u094B\u0938\u094D"
-  placerTitleNp: "\u090F\u0906\u0930 \u092A\u094D\u0932\u0947\u0938\u092E\u0947\u0928\u094D\u091F"
-  placerDescNp: "\u0906\u092B\u094D\u0928\u094B \u0935\u093E\u0924\u093E\u0935\u0930\u0923\u092E\u093E
-    \u0935\u0938\u094D\u0924\u0941\u0939\u0930\u0942 \u0930\u093E\u0916\u094D\u0928\u0941\u0939\u094B\u0938\u094D"
+  placerTitleNp: "\u0905\u0928\u0941\u0915\u0942\u0932\u093F\u0924 \u0906\u0935\u093E\u091C"
+  placerDescNp: "\u092E\u094B\u0921\u0947\u0932\u0939\u0930\u0942\u092E\u093E \u0906\u092B\u094D\u0928\u0948
+    \u0906\u0935\u093E\u091C \u0938\u092E\u093E\u0935\u0947\u0936 \u0917\u0930\u094D\u0928\u0941\u0939\u094B\u0938\u094D"
   simTitleNp: "\u090F\u0906\u0930 \u0938\u093F\u092E\u0941\u0932\u0947\u0936\u0928"
   simDescNp: "\u0905\u0928\u094D\u0924\u0930\u0915\u094D\u0930\u093F\u092F\u093E\u0915\u093E
     \u0938\u093E\u0925 \u0917\u0924\u093F\u0935\u093F\u0927\u093F\u0939\u0930\u0942
@@ -786,6 +790,8 @@ MonoBehaviour:
     \u0939\u0947\u0930\u094D\u0928\u0941\u0939\u094B\u0938\u094D"
   customVoiceTitleNp: "\u0905\u0928\u0941\u0915\u0942\u0932\u093F\u0924 \u0906\u0935\u093E\u091C"
   customVoiceObjNp: "\u0935\u0938\u094D\u0924\u0941 \u091B\u093E\u0928\u094D\u0928\u0941\u0939\u094B\u0938\u094D"
+  tigerCustomVoiceNp: "\u092C\u093E\u0918"
+  elephantCustomVoiceNp: "\u0939\u093E\u0924\u094D\u0924\u0940"
 --- !u!1 &293041466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,7 +1197,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Place Objects on your own Environment
+  m_text: Add your own voice to models
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d397e32529731d4ebff34acfa0370e1, type: 2}
   m_sharedMaterial: {fileID: 6373273145527523686, guid: 1d397e32529731d4ebff34acfa0370e1, type: 2}
@@ -1289,7 +1295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &563695419
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2013,7 +2019,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -163, y: -116.9}
+  m_AnchoredPosition: {x: -163, y: -116.8999}
   m_SizeDelta: {x: 156.1, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &937176395
@@ -2359,7 +2365,7 @@ GameObject:
   - component: {fileID: 1196115848}
   - component: {fileID: 1196115851}
   m_Layer: 5
-  m_Name: AR_placer
+  m_Name: Custom Voice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2383,7 +2389,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9, y: -78}
+  m_AnchoredPosition: {x: -9, y: -502.4}
   m_SizeDelta: {x: 894.2, y: 349.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1196115848
@@ -2492,7 +2498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db63c9231f15c534d82ff8f439299349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: place
+  sceneToLoad: Custom_voice_selector
 --- !u!1 &1209812664
 GameObject:
   m_ObjectHideFlags: 0
@@ -2505,7 +2511,7 @@ GameObject:
   - component: {fileID: 1209812667}
   - component: {fileID: 1209812666}
   m_Layer: 5
-  m_Name: AR Placer
+  m_Name: Custom Voice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2527,8 +2533,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 222, y: 34}
-  m_SizeDelta: {x: 456.0291, y: 39.4685}
+  m_AnchoredPosition: {x: 260.02908, y: 34}
+  m_SizeDelta: {x: 532.087, y: 39.468}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1209812666
 MonoBehaviour:
@@ -2550,7 +2556,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: AR Placer
+  m_text: Custom Voice
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 40ea38dc95cecda40a07734c7fb853d0, type: 2}
   m_sharedMaterial: {fileID: 5676217587485974837, guid: 40ea38dc95cecda40a07734c7fb853d0, type: 2}

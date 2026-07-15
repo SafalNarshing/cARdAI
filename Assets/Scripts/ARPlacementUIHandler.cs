@@ -36,17 +36,13 @@ public class ARPlacementUIHandler : MonoBehaviour
 
     public void ShowUIForModel(GameObject model)
     {
-        currentModel = model;
-        currentData = model.GetComponent<ARModelData>();
-
-        if (currentData == null)
+        var data = model.GetComponent<ARModelData>();
+        if (data == null)
         {
             Debug.LogWarning("Model missing ARModelData script!");
             return;
         }
-
-        if (uiContainer) uiContainer.SetActive(true);
-        UpdateLanguageContent();
+        // uses data.someField to populate UI
     }
 
     public void UpdateLanguageContent()

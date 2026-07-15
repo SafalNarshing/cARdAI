@@ -12,16 +12,25 @@ public class ARplace : MonoBehaviour
     [SerializeField] private ARRaycastManager raycastManager;
     [SerializeField] private ARPlacementUIHandler uiHandler; // <--- Drag UI Handler Here
 
+    [Header("Model To Place")]
+    [SerializeField] private GameObject modelToPlace; // set dynamically from combo selection UI
+
+    [Header("Interaction Handle")]
+    [SerializeField] private GameObject circleHandlePrefab; // flat ring prefab, spawned under the model
+    [SerializeField] private float circleHandleYOffset = 0.01f; // slightly above the plane to avoid z-fighting
+
     bool isPlacing = false;
     bool hasPlaced = false;   // 🔒 PLACE ONLY ONCE
 
     GameObject placedObject;
+    GameObject activeCircleHandle;
 
-    float initialDistance;
+    // --- Circle drag (move) state ---
+    bool isDraggingCircle = false;
+
+    // --- Circle pinch (scale) state ---
+    float initialPinchDistance;
     Vector3 initialScale;
-
-    float initialAngle;
-    float currentYRotation;
 
     void OnEnable()
     {
@@ -38,14 +47,26 @@ public class ARplace : MonoBehaviour
         if (!raycastManager) return;
 
         HandlePlacement();
-        HandleScaleAndRotation();
+        HandleCircleDragMove();
+        HandleCirclePinchScale();
     }
 
-    // --- NEW METHOD: Called by UI Handler when close button is clicked ---
+    // --- Called by UI Handler when close button is clicked ---
     public void ResetPlacement()
     {
         hasPlaced = false;
         placedObject = null;
+
+        if (activeCircleHandle != null)
+        {
+            Destroy(activeCircleHandle);
+            activeCircleHandle = null;
+        }
+    }
+
+    public void SetModelToPlace(GameObject newModel)
+    {
+        modelToPlace = newModel;
     }
 
     void HandlePlacement()
@@ -87,15 +108,23 @@ public class ARplace : MonoBehaviour
         {
             Pose hitPose = rayHits[0].pose;
 
+            if (modelToPlace == null)
+            {
+                Debug.LogWarning("[ARplace] No model selected to place yet.");
+                StartCoroutine(SetIsPlacingToFalseWithDelay());
+                return;
+            }
+
             placedObject = Instantiate(
-                raycastManager.raycastPrefab,
+                modelToPlace,
                 hitPose.position,
                 hitPose.rotation
             );
 
-            hasPlaced = true;   // 🔒 permanently lock placement
+            hasPlaced = true;
 
-            // --- TRIGGER UI HERE ---
+            SpawnCircleHandle(hitPose);
+
             if (uiHandler != null)
             {
                 uiHandler.ShowUIForModel(placedObject);
@@ -105,54 +134,105 @@ public class ARplace : MonoBehaviour
         StartCoroutine(SetIsPlacingToFalseWithDelay());
     }
 
+    void SpawnCircleHandle(Pose hitPose)
+    {
+        if (circleHandlePrefab == null)
+        {
+            Debug.LogWarning("[ARplace] No circle handle prefab assigned — skipping handle spawn.");
+            return;
+        }
+        if (placedObject == null) return;
+
+        Vector3 handlePos = hitPose.position + Vector3.up * circleHandleYOffset;
+
+        activeCircleHandle = Instantiate(
+            circleHandlePrefab,
+            handlePos,
+            circleHandlePrefab.transform.rotation
+        );
+
+        activeCircleHandle.transform.SetParent(null);
+    }
+
     IEnumerator SetIsPlacingToFalseWithDelay()
     {
         yield return new WaitForSeconds(0.25f);
         isPlacing = false;
     }
 
-    void HandleScaleAndRotation()
+    // --- Single-finger drag on the circle handle: moves the model ---
+    void HandleCircleDragMove()
     {
-        if (!hasPlaced) return;
-        if (placedObject == null) return;
+        if (!hasPlaced || placedObject == null || activeCircleHandle == null) return;
+        if (Touchscreen.current == null) return;
+        if (Touchscreen.current.touches.Count != 1) return;
+
+        var touch = Touchscreen.current.primaryTouch;
+        Vector2 screenPos = touch.position.ReadValue();
+
+        if (touch.press.wasPressedThisFrame)
+        {
+            isDraggingCircle = IsTouchOnCircle(screenPos);
+        }
+
+        if (isDraggingCircle && touch.press.isPressed)
+        {
+            var hits = new List<ARRaycastHit>();
+            if (raycastManager.Raycast(screenPos, hits, TrackableType.PlaneWithinPolygon))
+            {
+                Pose hitPose = hits[0].pose;
+                placedObject.transform.position = hitPose.position;
+                activeCircleHandle.transform.position = hitPose.position + Vector3.up * circleHandleYOffset;
+            }
+        }
+
+        if (touch.press.wasReleasedThisFrame)
+        {
+            isDraggingCircle = false;
+        }
+    }
+
+    // --- Two-finger pinch, only while a finger is on the circle: scales the model ---
+    void HandleCirclePinchScale()
+    {
+        if (!hasPlaced || placedObject == null) return;
         if (Touchscreen.current == null) return;
         if (Touchscreen.current.touches.Count < 2) return;
 
         var touch1 = Touchscreen.current.touches[0];
         var touch2 = Touchscreen.current.touches[1];
 
+        Vector2 pos1 = touch1.position.ReadValue();
+        Vector2 pos2 = touch2.position.ReadValue();
+
+        // Only scale if at least one of the two touches started on the circle
+        bool eitherOnCircle = IsTouchOnCircle(pos1) || IsTouchOnCircle(pos2);
+        if (!eitherOnCircle) return;
+
+        float currentDistance = Vector2.Distance(pos1, pos2);
+
         if (touch1.phase.ReadValue() == UnityEngine.InputSystem.TouchPhase.Began ||
             touch2.phase.ReadValue() == UnityEngine.InputSystem.TouchPhase.Began)
         {
-            initialDistance = Vector2.Distance(
-                touch1.position.ReadValue(),
-                touch2.position.ReadValue()
-            );
-
+            initialPinchDistance = currentDistance;
             initialScale = placedObject.transform.localScale;
-
-            Vector2 dir = touch2.position.ReadValue() - touch1.position.ReadValue();
-            initialAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            currentYRotation = placedObject.transform.eulerAngles.y;
         }
-
-        if (touch1.phase.ReadValue() == UnityEngine.InputSystem.TouchPhase.Moved ||
-            touch2.phase.ReadValue() == UnityEngine.InputSystem.TouchPhase.Moved)
+        else
         {
-            float currentDistance = Vector2.Distance(
-                touch1.position.ReadValue(),
-                touch2.position.ReadValue()
-            );
-
-            float scaleFactor = currentDistance / initialDistance;
+            float scaleFactor = currentDistance / initialPinchDistance;
             placedObject.transform.localScale = initialScale * scaleFactor;
-
-            Vector2 dir = touch2.position.ReadValue() - touch1.position.ReadValue();
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            float angleDelta = angle - initialAngle;
-
-            placedObject.transform.rotation =
-                Quaternion.Euler(0, currentYRotation - angleDelta, 0);
         }
+    }
+
+    bool IsTouchOnCircle(Vector2 screenPos)
+    {
+        if (activeCircleHandle == null || Camera.main == null) return false;
+
+        Ray ray = Camera.main.ScreenPointToRay(screenPos);
+        if (Physics.Raycast(ray, out RaycastHit hit, 100f))
+        {
+            return hit.collider != null && hit.collider.gameObject == activeCircleHandle;
+        }
+        return false;
     }
 }
