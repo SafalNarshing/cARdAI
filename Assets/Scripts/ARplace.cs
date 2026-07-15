@@ -17,7 +17,7 @@ public class ARplace : MonoBehaviour
 
     [Header("Interaction Handle")]
     [SerializeField] private GameObject circleHandlePrefab; // flat ring prefab, spawned under the model
-    [SerializeField] private float circleHandleYOffset = 0.01f; // slightly above the plane to avoid z-fighting
+    [SerializeField] private float circleHandleYOffset = -1f;
 
     bool isPlacing = false;
     bool hasPlaced = false;   // 🔒 PLACE ONLY ONCE
@@ -35,6 +35,7 @@ public class ARplace : MonoBehaviour
     void OnEnable()
     {
         EnhancedTouchSupport.Enable();
+        Debug.Log("[ARplace] OnEnable — EnhancedTouchSupport enabled");
     }
 
     void OnDisable()
@@ -44,7 +45,11 @@ public class ARplace : MonoBehaviour
 
     void Update()
     {
-        if (!raycastManager) return;
+        if (!raycastManager)
+        {
+            Debug.LogWarning("[ARplace] raycastManager is NULL — assign it in the Inspector!");
+            return;
+        }
 
         HandlePlacement();
         HandleCircleDragMove();
@@ -67,6 +72,7 @@ public class ARplace : MonoBehaviour
     public void SetModelToPlace(GameObject newModel)
     {
         modelToPlace = newModel;
+        Debug.Log($"[ARplace] Model to place set: {(newModel != null ? newModel.name : "NULL")}");
     }
 
     void HandlePlacement()
@@ -82,18 +88,21 @@ public class ARplace : MonoBehaviour
             var primary = Touchscreen.current.primaryTouch;
             if (primary.press.wasPressedThisFrame)
             {
+                Debug.Log("[ARplace] Touch press detected (Touchscreen)");
                 pressed = true;
                 screenPosition = primary.position.ReadValue();
             }
         }
         else if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
         {
+            Debug.Log("[ARplace] Mouse click detected");
             pressed = true;
             screenPosition = Mouse.current.position.ReadValue();
         }
 
         if (pressed)
         {
+            Debug.Log($"[ARplace] Attempting placement at screen position: {screenPosition}");
             isPlacing = true;
             PlaceObject(screenPosition);
         }
@@ -103,6 +112,8 @@ public class ARplace : MonoBehaviour
     {
         var rayHits = new List<ARRaycastHit>();
         raycastManager.Raycast(touchPosition, rayHits, TrackableType.PlaneWithinPolygon);
+
+        Debug.Log($"[ARplace] Raycast hits found: {rayHits.Count}");
 
         if (rayHits.Count > 0)
         {
@@ -115,13 +126,9 @@ public class ARplace : MonoBehaviour
                 return;
             }
 
-            placedObject = Instantiate(
-                modelToPlace,
-                hitPose.position,
-                hitPose.rotation
-            );
-
+            placedObject = Instantiate(modelToPlace, hitPose.position, hitPose.rotation);
             hasPlaced = true;
+            Debug.Log($"[ARplace] Placed model: {placedObject.name} at {hitPose.position}, LOCAL SCALE: {placedObject.transform.localScale}, LOSSY SCALE: {placedObject.transform.lossyScale}");
 
             SpawnCircleHandle(hitPose);
 
@@ -129,6 +136,10 @@ public class ARplace : MonoBehaviour
             {
                 uiHandler.ShowUIForModel(placedObject);
             }
+        }
+        else
+        {
+            Debug.Log("[ARplace] No plane detected at tap location");
         }
 
         StartCoroutine(SetIsPlacingToFalseWithDelay());
@@ -152,6 +163,8 @@ public class ARplace : MonoBehaviour
         );
 
         activeCircleHandle.transform.SetParent(null);
+
+        Debug.Log($"[ARplace] Circle handle spawned at {activeCircleHandle.transform.position}, rotation: {activeCircleHandle.transform.eulerAngles}");
     }
 
     IEnumerator SetIsPlacingToFalseWithDelay()
@@ -205,7 +218,6 @@ public class ARplace : MonoBehaviour
         Vector2 pos1 = touch1.position.ReadValue();
         Vector2 pos2 = touch2.position.ReadValue();
 
-        // Only scale if at least one of the two touches started on the circle
         bool eitherOnCircle = IsTouchOnCircle(pos1) || IsTouchOnCircle(pos2);
         if (!eitherOnCircle) return;
 
