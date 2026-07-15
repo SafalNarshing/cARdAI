@@ -54,11 +54,25 @@ public class ARplace : MonoBehaviour
         HandlePlacement();
         HandleCircleDragMove();
         HandleCirclePinchScale();
+
+        // Continuous check — logs if the placed model becomes inactive/destroyed unexpectedly
+        if (hasPlaced && placedObject != null)
+        {
+            if (!placedObject.activeSelf)
+            {
+                Debug.LogWarning("[ARplace] placedObject became INACTIVE this frame!");
+            }
+        }
+        else if (hasPlaced && placedObject == null)
+        {
+            Debug.LogWarning("[ARplace] placedObject is NULL even though hasPlaced is true — it was destroyed!");
+        }
     }
 
     // --- Called by UI Handler when close button is clicked ---
     public void ResetPlacement()
     {
+        Debug.Log("[ARplace] ResetPlacement() called");
         hasPlaced = false;
         placedObject = null;
 
@@ -126,16 +140,27 @@ public class ARplace : MonoBehaviour
                 return;
             }
 
-            placedObject = Instantiate(modelToPlace, hitPose.position, hitPose.rotation);
+            placedObject = Instantiate(
+                modelToPlace,
+                hitPose.position,
+                hitPose.rotation
+            );
+
             hasPlaced = true;
-            Debug.Log($"[ARplace] Placed model: {placedObject.name} at {hitPose.position}, LOCAL SCALE: {placedObject.transform.localScale}, LOSSY SCALE: {placedObject.transform.lossyScale}");
+            Debug.Log($"[ARplace] Placed model: {placedObject.name}, active: {placedObject.activeSelf}, scale: {placedObject.transform.localScale}, pos: {hitPose.position}");
 
             SpawnCircleHandle(hitPose);
 
+            // --- TEMPORARILY DISABLED FOR ISOLATION TEST ---
+            // If the model stays visible with this commented out, uiHandler.ShowUIForModel()
+            // is the cause of the disappearance, and we need to fix that method directly.
+            /*
             if (uiHandler != null)
             {
                 uiHandler.ShowUIForModel(placedObject);
+                Debug.Log($"[ARplace] After ShowUIForModel, active: {placedObject.activeSelf}");
             }
+            */
         }
         else
         {
