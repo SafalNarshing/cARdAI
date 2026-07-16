@@ -315,7 +315,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 802956394}
   audioSourceEn: {fileID: 365510583}
   audioSourceNp: {fileID: 1432804864}
@@ -381,7 +381,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 486137340}
   audioSourceEn: {fileID: 1882915739}
   audioSourceNp: {fileID: 825285800}
@@ -1106,7 +1106,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 840903922}
   audioSourceEn: {fileID: 1205475323}
   audioSourceNp: {fileID: 1606089413}
@@ -1727,7 +1727,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 1005199219}
   audioSourceEn: {fileID: 1188283274}
   audioSourceNp: {fileID: 1358201978}
@@ -2485,7 +2485,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 1069666910}
   audioSourceEn: {fileID: 1071647698}
   audioSourceNp: {fileID: 1724138427}
@@ -2775,7 +2775,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 515298588}
   audioSourceEn: {fileID: 2027673138}
   audioSourceNp: {fileID: 578002730}
@@ -4288,7 +4288,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 84162164}
   audioSourceEn: {fileID: 1021682192}
   audioSourceNp: {fileID: 450105477}
@@ -4354,7 +4354,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 16642836}
   audioSourceEn: {fileID: 2023221806}
   audioSourceNp: {fileID: 1935033241}
@@ -5515,7 +5515,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 2137048549}
   audioSourceEn: {fileID: 1825333157}
   audioSourceNp: {fileID: 1984280853}
@@ -6210,7 +6210,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 1779747900}
   audioSourceEn: {fileID: 147112042}
   audioSourceNp: {fileID: 435076500}
@@ -6582,7 +6582,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 1416375529}
   audioSourceEn: {fileID: 147112042}
   audioSourceNp: {fileID: 435076500}
@@ -7303,7 +7303,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 1577358174}
   audioSourceEn: {fileID: 1701522468}
   audioSourceNp: {fileID: 1474861856}
@@ -7872,7 +7872,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 1659607463}
   audioSourceEn: {fileID: 227173351}
   audioSourceNp: {fileID: 2054550146}
@@ -7937,7 +7937,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 1820427155}
   audioSourceEn: {fileID: 452055213}
   audioSourceNp: {fileID: 756278350}
@@ -8468,7 +8468,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 1238004836}
   audioSourceEn: {fileID: 1476676242}
   audioSourceNp: {fileID: 1817636064}
@@ -8751,7 +8751,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 1508827462}
   audioSourceEn: {fileID: 1187177226}
   audioSourceNp: {fileID: 868033770}
@@ -10169,7 +10169,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 388878025}
   audioSourceEn: {fileID: 702029429}
   audioSourceNp: {fileID: 859125564}
@@ -10435,7 +10435,6 @@ RectTransform:
   - {fileID: 2111635498}
   - {fileID: 2034536426}
   - {fileID: 55872853}
-  - {fileID: 1768174450}
   - {fileID: 1094608231}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10827,7 +10826,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 330831132}
   audioSourceEn: {fileID: 1598525659}
   audioSourceNp: {fileID: 1490385139}
@@ -11332,7 +11331,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 895707613}
   audioSourceEn: {fileID: 573606616}
   audioSourceNp: {fileID: 178787469}
@@ -12722,7 +12721,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 1453343648}
   audioSourceEn: {fileID: 710243301}
   audioSourceNp: {fileID: 120634295}
@@ -12983,7 +12982,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 134504302}
   audioSourceEn: {fileID: 1088338624}
   audioSourceNp: {fileID: 1224020655}
@@ -13395,7 +13394,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 1970288909}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 2101508903}
   audioSourceEn: {fileID: 1558437820}
   audioSourceNp: {fileID: 1562928537}
@@ -14030,126 +14029,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &1768174449
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1768174450}
-  - component: {fileID: 1768174453}
-  - component: {fileID: 1768174452}
-  - component: {fileID: 1768174451}
-  m_Layer: 5
-  m_Name: Close
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1768174450
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1768174449}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1254513953}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 279, y: 500.9}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1768174451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1768174449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7681527782a30424b93b7d3cdbf9085f, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1768174452
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1768174449}
-  m_CullTransparentMesh: 1
---- !u!114 &1768174453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1768174449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1768174451}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1773905364
 GameObject:
   m_ObjectHideFlags: 0
@@ -14186,7 +14065,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 1676006757}
   audioSourceEn: {fileID: 1729869956}
   audioSourceNp: {fileID: 609519843}
@@ -14975,7 +14854,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 1625836710}
   audioSourceEn: {fileID: 403502364}
   audioSourceNp: {fileID: 240479813}
@@ -15129,7 +15008,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 1275025411}
   audioSourceEn: {fileID: 488851158}
   audioSourceNp: {fileID: 1217875126}
@@ -15412,7 +15291,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 1251168908}
   audioSourceEn: {fileID: 564719911}
   audioSourceNp: {fileID: 625025039}
@@ -15695,7 +15574,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 256532027}
   audioSourceEn: {fileID: 1272671580}
   audioSourceNp: {fileID: 195310721}
@@ -15971,7 +15850,7 @@ MonoBehaviour:
   phonemeButton1: {fileID: 2034536427}
   syllableButton2: {fileID: 55872854}
   soundButton: {fileID: 2111635499}
-  closeButton: {fileID: 1768174453}
+  closeButton: {fileID: 0}
   modelObject: {fileID: 615932922}
   audioSourceEn: {fileID: 1103986866}
   audioSourceNp: {fileID: 959739812}

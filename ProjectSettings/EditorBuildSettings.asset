@@ -17,13 +17,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/simulation.unity
     guid: d774f23b6038e9d4f84689d5555db83f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/place.unity
     guid: 81d63119c67b25f4b97551677c54ca52
   - enabled: 1
     path: Assets/Scenes/tiger-custom.unity
     guid: 66035733e00d9db40b083c18be104c97
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/card_combo.unity
     guid: a792b131f7fa0e54fbad38cc5600cd37
   - enabled: 1
@@ -35,7 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Terms.unity
     guid: 231c45c5c7f9d4747a05d9da16599ab9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Combo_Cards_UI.unity
     guid: dcc6d78c24a94d848a5fe4730d632ce2
   - enabled: 1
@@ -44,12 +44,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/elephant-custom.unity
     guid: fd13991f1b4663d4783c314801de8a63
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Studying_Custom.unity
     guid: 44dd32548fb7245449ee6da7a6e6ec1a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Brushing_Custom.unity
     guid: c744977508d70c84297cd4fd78a1058a
+  - enabled: 1
+    path: Assets/Scenes/Combo_final.unity
+    guid: 579232c715f62af40a1b043c222227d3
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 28bf22b250e30f842953588b2e7d1da2, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 94ebaf900210133409d4d0ac5dd64083, type: 2}

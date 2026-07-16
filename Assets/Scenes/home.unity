@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db63c9231f15c534d82ff8f439299349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Combo_Cards_UI
+  sceneToLoad: Combo_final
 --- !u!114 &80098145
 MonoBehaviour:
   m_ObjectHideFlags: 0
