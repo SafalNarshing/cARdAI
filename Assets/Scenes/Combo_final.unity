@@ -2749,7 +2749,7 @@ MonoBehaviour:
   pairs:
   - targetA: book
     targetB: school
-    comboModel: {fileID: 3508729700336129237, guid: 6d4485edbefaa7a4eaa0afc0e7a993e7, type: 3}
+    comboModel: {fileID: 336703681719122874, guid: a2b7ee0c1b1f2dc40baca5218ba7c494, type: 3}
     previewSprite: {fileID: 21300000, guid: fcc62665884a48544b02abf56f7fb6b3, type: 3}
     resultNameEn: Studying
     resultNameNp: "\u0905\u0927\u094D\u092F\u092F\u0928 \u0917\u0930\u094D\u0926\u0948"
@@ -2777,7 +2777,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 489.43332, y: 1059.184}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1759899599
