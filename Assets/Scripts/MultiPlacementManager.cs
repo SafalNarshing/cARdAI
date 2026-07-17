@@ -9,22 +9,20 @@ using System.Collections;
 public class MultiPlacementManager : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private ARRaycastManager raycastManager;
+    public ARRaycastManager raycastManager;
     [SerializeField] private ComboLookup comboLookup;
 
     [Header("Combine UI")]
-    [SerializeField] private GameObject combineButtonObject; // the "Combine" button GameObject
+    [SerializeField] private GameObject combineButtonObject;
 
     [Header("Circle Handle (optional, reused per placed item)")]
     [SerializeField] private GameObject circleHandlePrefab;
     [SerializeField] private float circleHandleYOffset = -1f;
 
-    // Currently "armed" model waiting to be placed on next tap
     private GameObject pendingModelPrefab;
     private string pendingCardId;
     private PlacementCardButton lastSelectedButton;
 
-    // Tracks everything placed so far: cardId -> placed instance
     private Dictionary<string, GameObject> placedItems = new Dictionary<string, GameObject>();
     private List<GameObject> spawnedCircleHandles = new List<GameObject>();
     private GameObject combinedResultObject;
@@ -37,7 +35,7 @@ public class MultiPlacementManager : MonoBehaviour
     void Start()
     {
         if (combineButtonObject != null)
-            combineButtonObject.SetActive(false); // hidden by default
+            combineButtonObject.SetActive(false);
     }
 
     void Update()
@@ -46,10 +44,8 @@ public class MultiPlacementManager : MonoBehaviour
         HandleTapToPlace();
     }
 
-    // --- Called by each card button when tapped (arms it for placement) ---
     public void SelectCardToPlace(string cardId, GameObject modelPrefab, PlacementCardButton button)
     {
-        // Un-highlight whichever card was selected before
         if (lastSelectedButton != null)
             lastSelectedButton.SetHighlighted(false);
 
@@ -64,7 +60,7 @@ public class MultiPlacementManager : MonoBehaviour
     void HandleTapToPlace()
     {
         if (isPlacing) return;
-        if (pendingModelPrefab == null) return; // nothing armed, ignore taps
+        if (pendingModelPrefab == null) return;
 
         bool pressed = false;
         Vector2 screenPosition = default;
@@ -100,7 +96,6 @@ public class MultiPlacementManager : MonoBehaviour
         {
             Pose hitPose = rayHits[0].pose;
 
-            // If this cardId was already placed before, remove the old instance first
             if (placedItems.ContainsKey(pendingCardId))
             {
                 Destroy(placedItems[pendingCardId]);
@@ -110,11 +105,13 @@ public class MultiPlacementManager : MonoBehaviour
             GameObject newInstance = Instantiate(pendingModelPrefab, hitPose.position, hitPose.rotation);
             placedItems[pendingCardId] = newInstance;
 
+            // Assign the runtime raycast manager reference to this instance's interaction handle
+            AssignRaycastManagerToHandle(newInstance);
+
             SpawnCircleHandle(hitPose);
 
             Debug.Log($"[MultiPlacementManager] Placed {pendingCardId} at {hitPose.position}");
 
-            // Clear the armed state after placing
             pendingModelPrefab = null;
             pendingCardId = null;
 
@@ -130,6 +127,16 @@ public class MultiPlacementManager : MonoBehaviour
         StartCoroutine(SetIsPlacingToFalseWithDelay());
     }
 
+    // Finds ModelInteractionHandle on the instantiated object (if present) and assigns raycastManager
+    void AssignRaycastManagerToHandle(GameObject instance)
+    {
+        var handle = instance.GetComponent<ModelInteractionHandle>();
+        if (handle != null)
+        {
+            handle.raycastManager = raycastManager;
+        }
+    }
+
     void SpawnCircleHandle(Pose hitPose)
     {
         if (circleHandlePrefab == null) return;
@@ -140,7 +147,6 @@ public class MultiPlacementManager : MonoBehaviour
         spawnedCircleHandles.Add(handle);
     }
 
-    // --- Check every placed pair against ComboLookup ---
     void CheckForCombo()
     {
         List<string> placedIds = new List<string>(placedItems.Keys);
@@ -155,19 +161,21 @@ public class MultiPlacementManager : MonoBehaviour
                     Debug.Log($"[MultiPlacementManager] Combo match found: {placedIds[i]} + {placedIds[j]}");
                     if (combineButtonObject != null)
                         combineButtonObject.SetActive(true);
-                    return; // stop at first valid match
+                    return;
                 }
             }
         }
 
-        // No match yet — keep Combine hidden
         if (combineButtonObject != null)
             combineButtonObject.SetActive(false);
     }
 
-    // --- Called by the Combine button's OnClick ---
     public void OnCombineClicked()
     {
+        Debug.Log($"[MultiPlacementManager] OnCombineClicked called. Items placed: {placedItems.Count}");
+        foreach (var key in placedItems.Keys)
+            Debug.Log($"  - placed: {key}");
+
         List<string> placedIds = new List<string>(placedItems.Keys);
 
         for (int i = 0; i < placedIds.Count; i++)
@@ -175,6 +183,7 @@ public class MultiPlacementManager : MonoBehaviour
             for (int j = i + 1; j < placedIds.Count; j++)
             {
                 ActionPair match = comboLookup.FindComboPair(placedIds[i], placedIds[j]);
+                Debug.Log($"[MultiPlacementManager] Checking {placedIds[i]}+{placedIds[j]} -> match found: {match != null}");
                 if (match != null)
                 {
                     SpawnCombinedModel(match, placedIds[i], placedIds[j]);
@@ -183,9 +192,14 @@ public class MultiPlacementManager : MonoBehaviour
             }
         }
     }
+
     void SpawnCombinedModel(ActionPair match, string idA, string idB)
     {
-        if (match.comboModel == null) return;
+        if (match.comboModel == null)
+        {
+            Debug.LogWarning("[MultiPlacementManager] match.comboModel is NULL — check ComboLookup assignment!");
+            return;
+        }
 
         Vector3 posA = placedItems[idA].transform.position;
         Vector3 posB = placedItems[idB].transform.position;
@@ -199,9 +213,12 @@ public class MultiPlacementManager : MonoBehaviour
 
         combinedResultObject = Instantiate(match.comboModel, spawnPos, Quaternion.identity);
 
-        Debug.Log($"[MultiPlacementManager] Combined model spawned at {spawnPos}");
+        // Assign raycast manager to the combined model's interaction handle too
+        AssignRaycastManagerToHandle(combinedResultObject);
 
-        // --- Remove the two individual models now that the combo exists ---
+        Debug.Log($"[MultiPlacementManager] Combined model spawned: {combinedResultObject.name} at {spawnPos}, active: {combinedResultObject.activeSelf}");
+
+        // Remove the two individual models now that the combo exists
         if (placedItems.ContainsKey(idA))
         {
             Destroy(placedItems[idA]);
@@ -213,7 +230,7 @@ public class MultiPlacementManager : MonoBehaviour
             placedItems.Remove(idB);
         }
 
-        // --- Also remove their circle handles, since those models are gone ---
+        // Remove their circle handles too
         foreach (var handle in spawnedCircleHandles)
         {
             if (handle != null) Destroy(handle);
@@ -224,7 +241,6 @@ public class MultiPlacementManager : MonoBehaviour
             combineButtonObject.SetActive(false);
     }
 
-    // --- Called by the cross/reset button ---
     public void ResetAll()
     {
         foreach (var kvp in placedItems)
@@ -265,4 +281,4 @@ public class MultiPlacementManager : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         isPlacing = false;
     }
-}
+} 
